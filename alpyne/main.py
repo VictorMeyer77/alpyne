@@ -43,8 +43,8 @@ def arret(moteurNum):
 def arretComplet():
     GPIO.output(Pins[0][1], GPIO.LOW)
     GPIO.output(Pins[0][2], GPIO.LOW)
-    GPIO.output(Pins[1][1], GPIO.LOW)
-    GPIO.output(Pins[1][2], GPIO.LOW)
+    #GPIO.output(Pins[1][1], GPIO.LOW)
+    #GPIO.output(Pins[1][2], GPIO.LOW)
     print("Moteurs arretes.")
 
 
