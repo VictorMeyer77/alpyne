@@ -18,8 +18,8 @@ GPIO.setup(M1_In1, GPIO.OUT)
 GPIO.setup(M1_In2, GPIO.OUT)
 
 # Voir aide dans le tuto
-M1_Vitesse = GPIO.PWM(M1_En, 50)
-M1_Vitesse.start(50)
+M1_Vitesse = GPIO.PWM(M1_En, 100)
+M1_Vitesse.start(100)
 
 
 def sens1(moteurNum):
