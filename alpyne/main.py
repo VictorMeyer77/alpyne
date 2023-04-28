@@ -62,11 +62,11 @@ arretComplet()
 
 while True:
     # Exemple de motif de boucle
-    sens1(1)
-    #sens1(2)
+    #sens1(1)
+    sens1(2)
     sleep(5)
-    arretComplet()
+    #arretComplet()
     sleep(5)
-    sens2(1)
+    #sens2(1)
     #sens2(2)
     sleep(10)
