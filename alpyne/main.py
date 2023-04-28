@@ -69,4 +69,5 @@ while True:
     sleep(5)
     sens2(1)
     sens2(2)
-    sleep(10)
+    sleep(5)
+    arretComplet()
