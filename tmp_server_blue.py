@@ -1,6 +1,11 @@
+"""
+A simple Python script to receive messages from a client over
+Bluetooth using PyBluez (with Python 2).
+"""
+
 import bluetooth
 
-hostMACAddress = 'B8:27:EB:2D:A1:31'
+hostMACAddress = 'DC:A6:32:C5:38:27'
 port = 3
 backlog = 1
 size = 1024
