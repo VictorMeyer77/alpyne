@@ -2,6 +2,7 @@ import configparser
 from RPi import GPIO
 from control.manual.manual import Manual
 from move import Move
+import time
 
 CONF_PATH = "alpyne.conf"
 
@@ -16,4 +17,8 @@ if __name__ == "__main__":
     GPIO.setwarnings(False)
 
     move = Move(config["motor.one.pins"], config["motor.two.pins"])
-    Manual(move)
+    #Manual(move)
+    move.forward()
+    time.sleep(3)
+    move.backward()
+    time.sleep(3)
