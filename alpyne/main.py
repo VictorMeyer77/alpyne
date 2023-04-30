@@ -19,6 +19,6 @@ if __name__ == "__main__":
     move = Move(config["motor.one.pins"], config["motor.two.pins"])
     #Manual(move)
     move.forward()
-    time.sleep(10)
+    time.sleep(3)
     move.backward()
-    time.sleep(10)
+    time.sleep(3)
