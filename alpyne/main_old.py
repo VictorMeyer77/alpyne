@@ -23,14 +23,14 @@ def init():
     GPIO.setup(int(motor_two_pins["Enable"]), GPIO.OUT)
     GPIO.setup(int(motor_two_pins["InputOne"]), GPIO.OUT)
     GPIO.setup(int(motor_two_pins["InputTwo"]), GPIO.OUT)
+    # Voir aide dans le tuto
+    M1_Vitesse = GPIO.PWM(int(motor_one_pins["Enable"]), 100)
+    M2_Vitesse = GPIO.PWM(int(motor_two_pins["Enable"]), 100)
+    M1_Vitesse.start(100)
+    M2_Vitesse.start(100)
 
 init()
 
-# Voir aide dans le tuto
-M1_Vitesse = GPIO.PWM(int(motor_one_pins["Enable"]), 100)
-M2_Vitesse = GPIO.PWM(int(motor_two_pins["Enable"]), 100)
-M1_Vitesse.start(100)
-M2_Vitesse.start(100)
 
 def motor_forward(motor_pins):
     print("GPIO {} to HIGH and {} to LOW".format(motor_pins["InputOne"], motor_pins["InputTwo"]))
