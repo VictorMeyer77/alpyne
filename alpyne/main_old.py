@@ -24,6 +24,8 @@ def init():
     GPIO.setup(int(motor_two_pins["InputOne"]), GPIO.OUT)
     GPIO.setup(int(motor_two_pins["InputTwo"]), GPIO.OUT)
 
+init()
+
 # Voir aide dans le tuto
 M1_Vitesse = GPIO.PWM(int(motor_one_pins["Enable"]), 100)
 M2_Vitesse = GPIO.PWM(int(motor_two_pins["Enable"]), 100)
@@ -71,7 +73,7 @@ def stop():
     motor_stop(motor_one_pins)
     motor_stop(motor_two_pins)
 
-init()
+
 stop()
 forward()
 sleep(3)
