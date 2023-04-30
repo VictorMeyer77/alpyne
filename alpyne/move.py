@@ -7,7 +7,7 @@ class Move:
         self.motor_one_pins = motor_one_pins
         self.motor_two_pins = motor_two_pins
         self._init_gpio_output()
-        self._init_motors()
+        self.pwm_one, self.pwm_two = self._create_pwm()
         self.stop()
 
     def _init_gpio_output(self):
@@ -19,12 +19,13 @@ class Move:
         GPIO.setup(int(self.motor_two_pins["InputOne"]), GPIO.OUT)
         GPIO.setup(int(self.motor_two_pins["InputTwo"]), GPIO.OUT)
 
-    def _init_motors(self):
+    def _create_pwm(self):
         print("Motors initialization")
-        motor_one = GPIO.PWM(int(self.motor_one_pins["Enable"]), 100)
-        motor_two = GPIO.PWM(int(self.motor_two_pins["Enable"]), 100)
-        motor_one.start(100)
-        motor_two.start(100)
+        pwm_one = GPIO.PWM(int(self.motor_one_pins["Enable"]), 100)
+        pwm_two = GPIO.PWM(int(self.motor_two_pins["Enable"]), 100)
+        pwm_one.start(100)
+        pwm_two.start(100)
+        return pwm_one, pwm_two
 
     @staticmethod
     def motor_forward(motor_pins):
