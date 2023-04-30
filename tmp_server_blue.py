@@ -39,8 +39,13 @@ class Receiver:
         self.client, self.address = self.socket.accept()
 
     def get_last_message(self, qu):
-        data = self.client.recv(1024)
-        qu.put(data.decode("utf-8")[0])
+        while True:
+            data = self.client.recv(1024)
+            message = data.decode("utf-8")[0]
+            if message == "quit":
+                break
+            else:
+                qu.put(message)
 
     def close(self):
         self.socket.close()
