@@ -42,10 +42,9 @@ class Receiver:
         while True:
             data = self.client.recv(1024)
             message = data.decode("utf-8")[0]
+            qu.put(message)
             if message == "quit":
                 break
-            else:
-                qu.put(message)
 
     def close(self):
         self.socket.close()
@@ -55,7 +54,12 @@ v = Receiver({"Address": "DC:A6:32:C5:38:27", "Port": 4})
 
 
 def mm(qe):
-    print(qe.get())
+    while True:
+        message = qe.get()
+        print(message)
+        if message == "quit":
+            break
+
 
 q = queue.Queue()
 t1 = threading.Thread(target = v.get_last_message, args =(q, ))
