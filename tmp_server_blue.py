@@ -26,7 +26,7 @@ except:
 """
 
 import socket
-
+import time
 
 class Receiver:
 
@@ -47,3 +47,4 @@ class Receiver:
 v = Receiver({"Address": "DC:A6:32:C5:38:27", "Port": 4})
 while True:
     print(v.get_last_message())
+    time.sleep(5)
