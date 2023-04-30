@@ -6,6 +6,13 @@ class Move:
     def __init__(self, motor_one_pins, motor_two_pins):
         self.motor_one_pins = motor_one_pins
         self.motor_two_pins = motor_two_pins
+        print(self.motor_one_pins["Enable"])
+        print(self.motor_one_pins["InputOne"])
+        print(self.motor_one_pins["InputTwo"])
+        print(self.motor_two_pins["Enable"])
+        print(self.motor_two_pins["InputOne"])
+        print(self.motor_two_pins["InputTwo"])
+
         self._init_gpio_output()
         self._init_motors()
 
