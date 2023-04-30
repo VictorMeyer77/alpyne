@@ -41,9 +41,9 @@ class Receiver:
     def get_last_message(self, qu):
         while True:
             data = self.client.recv(1024)
-            message = data.decode("utf-8")[0]
+            message = data.decode("utf-8")[-1]
             qu.put(message)
-            if message == "quit":
+            if message == "e":
                 break
 
     def close(self):
@@ -57,7 +57,7 @@ def mm(qe):
     while True:
         message = qe.get()
         print(message)
-        if message == "quit":
+        if message == "e":
             break
 
 
