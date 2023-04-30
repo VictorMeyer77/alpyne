@@ -27,6 +27,8 @@ except:
 
 import socket
 import time
+import queue
+import threading
 
 class Receiver:
 
@@ -36,19 +38,22 @@ class Receiver:
         self.socket.listen(1)
         self.client, self.address = self.socket.accept()
 
-    def get_last_message(self):
-        print("iii")
+    def get_last_message(self, qu):
         data = self.client.recv(1024)
-        if data:
-            return data.decode("utf-8")[0]
-        else:
-            ""
+        qu.put(data.decode("utf-8")[0])
 
     def close(self):
         self.socket.close()
         self.client.close()
 
 v = Receiver({"Address": "DC:A6:32:C5:38:27", "Port": 4})
-while True:
-    print(v.get_last_message())
-    time.sleep(5)
+
+
+def mm(qe):
+    print(qe.get())
+
+q = queue.Queue()
+t1 = threading.Thread(target = v.get_last_message, args =(q, ))
+t2 = threading.Thread(target = mm, args =(q, ))
+t1.start()
+t2.start()
