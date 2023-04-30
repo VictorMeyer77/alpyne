@@ -1,5 +1,5 @@
 import configparser
-from RPi import GPIO
+import RPi.GPIO as GPIO
 from control.manual.manual import Manual
 from move import Move
 import time
