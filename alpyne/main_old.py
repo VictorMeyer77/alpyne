@@ -14,6 +14,8 @@ motor_two_pins = config["motor.two.pins"]
 GPIO.setmode(GPIO.BOARD)
 GPIO.setwarnings(False)
 
+M1_Vitesse = None
+M2_Vitesse = None
 
 def init():
     GPIO.setup(int(motor_one_pins["Enable"]), GPIO.OUT)
