@@ -1,6 +1,6 @@
 from RPi import GPIO
 
-
+GPIO.setmode(GPIO.BOARD)
 class Move:
 
     def __init__(self, motor_one_pins, motor_two_pins):
