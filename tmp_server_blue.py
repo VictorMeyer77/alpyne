@@ -38,7 +38,7 @@ class Receiver:
 
     def get_last_message(self):
         data = self.client.recv(1024)
-        return data
+        return data.decode("utf-8")
 
     def close(self):
         self.socket.close()
