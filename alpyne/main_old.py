@@ -16,7 +16,6 @@ GPIO.setwarnings(False)
 
 
 def init():
-    GPIO.setmode(GPIO.BOARD)
     GPIO.setup(int(motor_one_pins["Enable"]), GPIO.OUT)
     GPIO.setup(int(motor_one_pins["InputOne"]), GPIO.OUT)
     GPIO.setup(int(motor_one_pins["InputTwo"]), GPIO.OUT)
@@ -76,4 +75,3 @@ init()
 stop()
 forward()
 sleep(3)
-stop()
