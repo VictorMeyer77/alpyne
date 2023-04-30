@@ -37,6 +37,7 @@ class Receiver:
         self.client, self.address = self.socket.accept()
 
     def get_last_message(self):
+        print("iii")
         data = self.client.recv(1024)
         if data:
             return data.decode("utf-8")[0]
