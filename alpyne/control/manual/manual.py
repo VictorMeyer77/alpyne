@@ -1,32 +1,40 @@
-from pynput import keyboard
-from pynput.keyboard import Key
+import keyboard
+from keyboard import KEY_DOWN, KEY_UP
 
 
 class Manual:
 
     def __init__(self, move):
         self.move = move
-        self.start()
+        self.listening = True
+        self._start()
 
-    def on_press(self, key):
-        if key == Key.up:
+    def _on_press(self, key):
+        print(key)
+        if key == "haut":
             self.move.forward()
-        elif key == Key.down:
+        elif key == "bas":
             self.move.backward()
-        elif key == Key.right:
+        elif key == "droite":
             self.move.right()
-        elif key == Key.left:
+        elif key == "gauche":
             self.move.left()
 
-    def on_release(self, key):
-        if key in [Key.up, Key.down, Key.right, Key.left]:
+    def _on_release(self, key):
+        print(key)
+        if key in ["haut", "bas", "gauche", "droite"]:
             self.move.stop()
-        if key == keyboard.Key.esc:
+        if key == "esc":
             self.move.stop()
-            return False
+            self.listening = False
 
-    def start(self):
-        with keyboard.Listener(
-                on_press=self.on_press,
-                on_release=self.on_release) as listener:
-            listener.join()
+    def _on_action(self, event):
+        if event.event_type == KEY_DOWN:
+            self._on_press(event.name)
+        elif event.event_type == KEY_UP:
+            self._on_release(event.name)
+
+    def _start(self):
+        keyboard.hook(self._on_action)
+        while self.listening:
+            pass
