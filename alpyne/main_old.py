@@ -72,8 +72,5 @@ def stop():
 
 
 stop()
-
-while True:
-    # Exemple de motif de boucle
-    forward()
-    sleep(5)
+forward()
+sleep(5)
