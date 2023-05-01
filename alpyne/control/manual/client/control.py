@@ -10,7 +10,7 @@ class Controller:
 
     def __init__(self, bluetooth_config):
         self.socket = socket.socket(socket.AF_BLUETOOTH, socket.SOCK_STREAM, socket.BTPROTO_RFCOMM)
-        self.socket.connect((bluetooth_config["Address"], bluetooth_config["port"]))
+        self.socket.connect((bluetooth_config["Address"], int(bluetooth_config["port"])))
         self.listening = True
 
     def _on_press(self, key):
