@@ -13,7 +13,6 @@ class Controller:
                 self.execute_command(command)
 
     def execute_command(self, command):
-        print(command)
         if command == "o":
             self.move.forward()
         elif command == "l":
