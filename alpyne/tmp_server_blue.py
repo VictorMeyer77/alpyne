@@ -1,4 +1,5 @@
 import configparser
+from RPi.GPIO import GPIO
 
 from move import Move
 from control.manual.server.controller import Controller
@@ -10,6 +11,9 @@ import queue
 CONF_PATH = "alpyne.conf"
 
 if __name__ == "__main__":
+    GPIO.setmode(GPIO.BOARD)
+    GPIO.setwarnings(False)
+
     config = configparser.ConfigParser()
     config.read(CONF_PATH)
 
