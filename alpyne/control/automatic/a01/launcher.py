@@ -2,7 +2,7 @@ import queue
 import threading
 from move import Move
 from control.automatic.a01.controller import Controller
-from sensor.ultrasonic import ultrasonic_loop
+from control.sensor.ultrasonic import ultrasonic_loop
 
 
 def launch(config):
