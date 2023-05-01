@@ -1,8 +1,10 @@
 import configparser
 import RPi.GPIO as GPIO
-from control.manual.manual import Manual
 from move import Move
-import time
+from control.manual.server.controller import Controller
+from control.manual.server.receiver import Receiver
+import threading
+import queue
 
 CONF_PATH = "alpyne.conf"
 
@@ -13,13 +15,12 @@ if __name__ == "__main__":
     GPIO.setmode(GPIO.BOARD)
     GPIO.setwarnings(False)
 
+    command_queue = queue.Queue()
     move = Move(config["motor.one.pins"], config["motor.two.pins"])
-    #Manual(move)
-    move.forward()
-    time.sleep(3)
-    move.right()
-    time.sleep(1)
-    move.left()
-    time.sleep(1)
-    move.backward()
-    time.sleep(3)
+    receiver = Receiver(config["control.manual.bluetooth"])
+    controller = Controller(move, command_queue)
+    con_thread = threading.Thread(target=controller.run)
+    rec_thread = threading.Thread(target=receiver.get_message, args=(command_queue,))
+    con_thread.start()
+    rec_thread.start()
+
