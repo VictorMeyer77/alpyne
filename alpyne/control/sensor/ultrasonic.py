@@ -2,7 +2,12 @@ import RPi.GPIO as GPIO
 import time
 
 
-def ultrasound_distance(ultrasonic_pins):
+def ultrasonic_loop(ultrasonic_pins, queue):
+    while True:
+        queue.put(ultrasonic_distance(ultrasonic_pins))
+
+
+def ultrasonic_distance(ultrasonic_pins):
     GPIO.output(ultrasonic_pins["Trigger"], True)
     time.sleep(0.00001)
     GPIO.output(ultrasonic_pins["Trigger"], False)
