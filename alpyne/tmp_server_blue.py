@@ -1,6 +1,6 @@
 import configparser
 
-from alpyne.move import Move
+from move import Move
 from control.manual.server.controller import Controller
 from control.manual.server.receiver import Receiver
 
