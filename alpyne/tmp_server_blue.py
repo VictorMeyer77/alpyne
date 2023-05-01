@@ -1,5 +1,5 @@
 import configparser
-from RPi.GPIO import GPIO
+import RPi.GPIO as GPIO
 
 from move import Move
 from control.manual.server.controller import Controller
