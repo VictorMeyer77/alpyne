@@ -1,0 +1,24 @@
+import configparser
+
+from alpyne.move import Move
+from control.manual.server.controller import Controller
+from control.manual.server.receiver import Receiver
+
+import threading
+import queue
+
+CONF_PATH = "../alpyne.conf"
+
+if __name__ == "__main__":
+    config = configparser.ConfigParser()
+    config.read(CONF_PATH)
+
+    q = queue.Queue()
+    move = Move(config["motor.one.pins"], config["motor.two.pins"])
+    receiver = Receiver(config["control.manual.bluetooth"])
+    controller = Controller(move, q)
+    con_thread = threading.Thread(target=controller.run, args=(q,))
+    rec_thread = threading.Thread(target=receiver.get_message, args=(q,))
+    con_thread.start()
+    rec_thread.start()
+
