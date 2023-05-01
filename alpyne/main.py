@@ -6,9 +6,6 @@ import time
 
 CONF_PATH = "alpyne.conf"
 
-config = configparser.ConfigParser()
-config.read(CONF_PATH)
-
 if __name__ == "__main__":
     config = configparser.ConfigParser()
     config.read(CONF_PATH)
