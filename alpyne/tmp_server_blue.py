@@ -7,7 +7,7 @@ from control.manual.server.receiver import Receiver
 import threading
 import queue
 
-CONF_PATH = "../alpyne.conf"
+CONF_PATH = "alpyne.conf"
 
 if __name__ == "__main__":
     config = configparser.ConfigParser()
