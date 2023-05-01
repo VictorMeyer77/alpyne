@@ -14,6 +14,6 @@ class Controller:
                 self.move.forward()
             else:
                 self.move.right()
-                time.sleep(2)
+                time.sleep(5)
                 self.move.stop()
 
