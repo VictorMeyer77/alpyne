@@ -8,8 +8,8 @@ class Ultrasonic:
 
         self.ultrasonic_pins = ultrasonic_pins
         self.queue = queue
-        GPIO.setup(self.ultrasonic_pins["Trigger"], GPIO.OUT)
-        GPIO.setup(self.ultrasonic_pins["Echo"], GPIO.IN)
+        GPIO.setup(int(self.ultrasonic_pins["Trigger"]), GPIO.OUT)
+        GPIO.setup(int(self.ultrasonic_pins["Echo"]), GPIO.IN)
 
     def start(self):
         while True:
