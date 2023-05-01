@@ -5,7 +5,7 @@ class Receiver:
 
     def __init__(self, bluetooth_config):
         self.socket = socket.socket(socket.AF_BLUETOOTH, socket.SOCK_STREAM, socket.BTPROTO_RFCOMM)
-        self.socket.bind((bluetooth_config["Address"], bluetooth_config["Port"]))
+        self.socket.bind((bluetooth_config["Address"], int(bluetooth_config["Port"])))
         self.socket.listen(1)
         self.client, _ = self.socket.accept()
 
