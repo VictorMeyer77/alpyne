@@ -4,7 +4,8 @@ import time
 
 def ultrasonic_loop(ultrasonic_pins, queue):
     while True:
-        queue.put(ultrasonic_distance(ultrasonic_pins))
+        tmp = ultrasonic_distance(ultrasonic_pins)
+        queue.put(tmp)
 
 
 def ultrasonic_distance(ultrasonic_pins):
