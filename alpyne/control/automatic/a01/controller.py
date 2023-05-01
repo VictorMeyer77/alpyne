@@ -10,7 +10,9 @@ class Controller:
 
     def run(self):
         while True:
-            if self.ultrasonic_queue.get() > 50.0:
+            tmp = self.ultrasonic_queue.get()
+            print(tmp)
+            if tmp > 50.0:
                 self.move.forward()
             else:
                 self.move.right()
