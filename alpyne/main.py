@@ -24,7 +24,7 @@ if __name__ == "__main__":
         receiver = Receiver(config["control.manual.bluetooth"])
         controller = Controller(move, command_queue)
         con_thread = threading.Thread(target=controller.run)
-        rec_thread = threading.Thread(target=receiver.get_message, args=(command_queue,))
+        rec_thread = threading.Thread(target=receiver.get_message)
         con_thread.start()
         rec_thread.start()
 
