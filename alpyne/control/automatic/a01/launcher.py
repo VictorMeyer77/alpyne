@@ -1,7 +1,6 @@
 import queue
 import threading
 import time
-
 from move import Move
 from control.automatic.a01.controller import Controller
 from control.sensor.ultrasonic import Ultrasonic
@@ -11,7 +10,7 @@ def launch(config):
     ultrasonic_queue = queue.Queue()
     move = Move(config["motor.one.pins"], config["motor.two.pins"])
     move.forward()
-    time.sleep(5)
+    """time.sleep(5)
     ultrasonic = Ultrasonic(config["ultrasonic.pins"], ultrasonic_queue)
     controller = Controller(move, ultrasonic_queue)
     con_thread = threading.Thread(target=controller.run)
@@ -19,4 +18,4 @@ def launch(config):
     con_thread.start()
     ult_thread.start()
     con_thread.join()
-    ult_thread.join()
+    ult_thread.join()"""
