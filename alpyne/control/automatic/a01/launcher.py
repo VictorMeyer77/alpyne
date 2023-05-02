@@ -9,8 +9,8 @@ from control.sensor.ultrasonic import Ultrasonic
 def launch(config):
     ultrasonic_queue = queue.Queue()
     move = Move(config["motor.one.pins"], config["motor.two.pins"])
-    ultrasonic = Ultrasonic(config["ultrasonic.pins"], ultrasonic_queue)
-    controller = Controller(move, ultrasonic_queue)
+    ultrasonic = Ultrasonic(config["ultrasonic.pins"])
+    controller = Controller(move)
 
     while True:
         try:
