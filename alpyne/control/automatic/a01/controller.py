@@ -9,14 +9,17 @@ class Controller:
         self.ultrasonic_queue = ultrasonic_queue
 
     def run(self):
-        while True:
-            tmp = float(self.ultrasonic_queue.get())
-            print(tmp)
-            if tmp > 50.0:
-                self.move.forward()
-                time.sleep(3)
-            else:
-                self.move.right()
-                time.sleep(3)
-                self.move.stop()
+        try:
+            while True:
+                tmp = float(self.ultrasonic_queue.get())
+                print(tmp)
+                if tmp > 50.0:
+                    self.move.forward()
+                    time.sleep(3)
+                else:
+                    self.move.right()
+                    time.sleep(3)
+                    self.move.stop()
+        except KeyboardInterrupt:
+            pass
 

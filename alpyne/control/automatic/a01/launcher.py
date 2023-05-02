@@ -1,5 +1,6 @@
 import queue
 import threading
+import RPi.GPIO as GPIO
 from move import Move
 from control.automatic.a01.controller import Controller
 from control.sensor.ultrasonic import Ultrasonic
@@ -14,3 +15,4 @@ def launch(config):
     ult_thread = threading.Thread(target=ultrasonic.start)
     con_thread.start()
     ult_thread.start()
+    GPIO.cleanup()

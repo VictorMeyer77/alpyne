@@ -12,8 +12,11 @@ class Ultrasonic:
         GPIO.setup(int(self.ultrasonic_pins["Echo"]), GPIO.IN)
 
     def start(self):
-        while True:
-            self.queue.put(self._compute_distance())
+        try:
+            while True:
+                self.queue.put(self._compute_distance())
+        except KeyboardInterrupt:
+            pass
 
     def _compute_distance(self):
         GPIO.output(int(self.ultrasonic_pins["Trigger"]), True)
