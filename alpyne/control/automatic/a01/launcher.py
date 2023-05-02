@@ -15,5 +15,6 @@ def launch(config):
     while True:
         try:
             controller.run({"ultrasonic_distance": ultrasonic.get_distance()})
+            time.sleep(1)
         except KeyboardInterrupt:
             break
