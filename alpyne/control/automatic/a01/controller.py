@@ -15,10 +15,12 @@ class Controller:
                 print(tmp)
                 if tmp > 50.0:
                     self.move.forward()
-                    time.sleep(3)
+                    print("move forward")
+                    time.sleep(2)
                 else:
                     self.move.right()
-                    time.sleep(3)
+                    print("move right")
+                    time.sleep(2)
                     #self.move.stop()
         except KeyboardInterrupt:
             pass
