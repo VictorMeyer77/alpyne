@@ -11,9 +11,9 @@ def launch(config):
     move = Move(config["motor.one.pins"], config["motor.two.pins"])
     ultrasonic = Ultrasonic(config["ultrasonic.pins"], ultrasonic_queue)
     controller = Controller(move, ultrasonic_queue)
-    con_thread = threading.Thread(target=controller.run)
-    ult_thread = threading.Thread(target=ultrasonic.start)
-    con_thread.start()
-    ult_thread.start()
-    con_thread.join()
-    ult_thread.join()
+
+    while True:
+        try:
+            controller.run({"ultrasonic_distance": ultrasonic.get_distance()})
+        except KeyboardInterrupt:
+            break

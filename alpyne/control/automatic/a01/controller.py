@@ -3,25 +3,20 @@ import time
 
 class Controller:
 
-    def __init__(self, move, ultrasonic_queue):
+    def __init__(self, move):
 
         self.move = move
-        self.ultrasonic_queue = ultrasonic_queue
 
-    def run(self):
-        try:
-            while True:
-                tmp = float(self.ultrasonic_queue.get())
-                print(tmp)
-                if tmp > 50.0:
-                    self.move.forward()
-                    print("move forward")
-                    time.sleep(2)
-                else:
-                    self.move.right()
-                    print("move right")
-                    time.sleep(2)
-                    #self.move.stop()
-        except KeyboardInterrupt:
-            pass
+    def run(self, environment_info):
+        tmp = float(environment_info["ultrasonic_distance"])
+        print(tmp)
+        if tmp > 50.0:
+            self.move.forward()
+            print("move forward")
+            time.sleep(1)
+        else:
+            self.move.right()
+            print("move right")
+            time.sleep(1)
+            #self.move.stop()
 
