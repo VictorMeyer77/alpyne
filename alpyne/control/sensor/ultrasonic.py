@@ -8,6 +8,7 @@ class Ultrasonic:
 
         self.ultrasonic_pins = ultrasonic_pins
         self.queue = queue
+        GPIO.setmode(GPIO.BOARD)
         GPIO.setup(int(self.ultrasonic_pins["Trigger"]), GPIO.OUT)
         GPIO.setup(int(self.ultrasonic_pins["Echo"]), GPIO.IN)
 
