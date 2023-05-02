@@ -1,6 +1,3 @@
-import time
-
-
 class Controller:
 
     def __init__(self, move):
@@ -9,7 +6,6 @@ class Controller:
 
     def run(self, environment_info):
         distance = float(environment_info["ultrasonic_distance"])
-        print(distance)
         if distance > 30.0:
             self.move.forward()
         else:

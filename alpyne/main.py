@@ -1,11 +1,7 @@
-from control.manual.server.controller import Controller
-from control.manual.server.receiver import Receiver
-from control.automatic.a01.launcher import launch
+from alpyne.control.manual.launcher import launch as manual_launcher
+from control.automatic.a01.launcher import launch as a01_launcher
 import configparser
 import RPi.GPIO as GPIO
-from move import Move
-import threading
-import queue
 import sys
 
 CONF_PATH = "alpyne.conf"
@@ -18,18 +14,9 @@ if __name__ == "__main__":
     GPIO.setwarnings(False)
 
     if sys.argv[1] == "man":
-
-        command_queue = queue.Queue()
-        move = Move(config["motor.one.pins"], config["motor.two.pins"])
-        receiver = Receiver(config["control.manual.bluetooth"])
-        controller = Controller(move, command_queue)
-        con_thread = threading.Thread(target=controller.run)
-        rec_thread = threading.Thread(target=receiver.get_message, args=(command_queue,))
-        con_thread.start()
-        rec_thread.start()
+        manual_launcher(config)
 
     elif sys.argv[1] == "a01":
-
-        launch(config)
+        a01_launcher(config)
 
     GPIO.cleanup()
