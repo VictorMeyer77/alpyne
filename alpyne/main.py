@@ -22,7 +22,7 @@ if __name__ == "__main__":
         command_queue = queue.Queue()
         move = Move(config["motor.one.pins"], config["motor.two.pins"])
         receiver = Receiver(config["control.manual.bluetooth"])
-        controller = Controller(move, command_queue)
+        controller = Controller(move)
         con_thread = threading.Thread(target=controller.run)
         rec_thread = threading.Thread(target=receiver.get_message)
         con_thread.start()
