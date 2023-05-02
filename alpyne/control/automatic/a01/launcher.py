@@ -14,3 +14,5 @@ def launch(config):
     ult_thread = threading.Thread(target=ultrasonic.start)
     con_thread.start()
     ult_thread.start()
+    con_thread.join()
+    ult_thread.join()
