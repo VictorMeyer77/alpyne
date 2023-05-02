@@ -14,7 +14,6 @@ class Ultrasonic:
     def start(self):
         while True:
             self.queue.put(self._compute_distance())
-            time.sleep(0.5)
 
     def _compute_distance(self):
         GPIO.output(int(self.ultrasonic_pins["Trigger"]), True)
