@@ -13,10 +13,8 @@ class Controller:
         if tmp > 50.0:
             self.move.forward()
             print("move forward")
-            time.sleep(1)
         else:
             self.move.right()
             print("move right")
-            time.sleep(1)
             #self.move.stop()
 
