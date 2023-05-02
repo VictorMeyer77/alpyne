@@ -10,7 +10,7 @@ class Controller:
     def run(self, environment_info):
         tmp = float(environment_info["ultrasonic_distance"])
         print(tmp)
-        if tmp > 50.0:
+        if tmp > 30.0:
             self.move.forward()
             print("move forward")
         else:
