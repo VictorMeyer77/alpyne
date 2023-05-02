@@ -15,5 +15,7 @@ class Controller:
             print("move forward")
         else:
             self.move.right()
+            time.sleep(0.1)
             print("move right")
+            self.move.stop()
 
