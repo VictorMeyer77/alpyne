@@ -1,7 +1,5 @@
 import queue
 import threading
-import time
-
 from move import Move
 from control.manual.server.receiver import Receiver
 from control.manual.server.controller import Controller
@@ -11,8 +9,6 @@ def launch(config):
     command_queue = queue.Queue()
     move = Move(config["motor.one.pins"], config["motor.two.pins"])
     move.forward()
-    time.sleep(3)
-    return
     receiver = Receiver(config["control.manual.bluetooth"])
     controller = Controller(move, command_queue)
     con_thread = threading.Thread(target=controller.run)
