@@ -1,4 +1,4 @@
-from alpyne.control.manual.launcher import launch as manual_launcher
+from control.manual.launcher import launch as manual_launcher
 from control.automatic.a01.launcher import launch as a01_launcher
 import configparser
 import RPi.GPIO as GPIO
