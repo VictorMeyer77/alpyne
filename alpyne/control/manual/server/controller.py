@@ -10,11 +10,12 @@ class Controller:
 
     def run(self):
         while True:
-            command = self.queue.queue[-1]
-            if command == "e":
-                break
-            else:
-                self.execute_command(command)
+            if not self.queue.empty():
+                command = self.queue.queue[-1]
+                if command == "e":
+                    break
+                else:
+                    self.execute_command(command)
 
     def execute_command(self, command):
         if command == "o":
