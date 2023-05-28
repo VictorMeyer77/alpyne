@@ -30,4 +30,4 @@ class Controller:
 
         if command in ["o", "l", "m", "k"]:
             self.camera.capture(command)
-        time.sleep(0.5)
+        time.sleep(0.25)
