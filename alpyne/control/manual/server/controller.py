@@ -10,7 +10,7 @@ class Controller:
 
     def run(self):
         while True:
-            command = self.queue.get()
+            command = self.queue.dequeue()
             if command == "e":
                 break
             else:
