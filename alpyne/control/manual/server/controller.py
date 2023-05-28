@@ -1,8 +1,12 @@
+import time
+
+
 class Controller:
 
-    def __init__(self, move, queue):
+    def __init__(self, move, queue, camera):
         self.move = move
         self.queue = queue
+        self.camera = camera
 
     def run(self):
         while True:
@@ -23,3 +27,7 @@ class Controller:
             self.move.left()
         elif command == "n":
             self.move.stop()
+
+        if command in ["o", "l", "m", "k"]:
+            self.camera.capture(command)
+        time.sleep(0.5)
