@@ -1,4 +1,4 @@
-from datetime import datetime
+import time
 from picamera import PiCamera
 import os
 
@@ -13,4 +13,4 @@ class Camera:
         self.output_path = "output/media/image/"
 
     def capture(self, subdir):
-        self.camera.capture(os.path.join(self.output_path, subdir, "{}.jpg".format(datetime.now())))
+        self.camera.capture(os.path.join(self.output_path, subdir, "{}.jpg".format(round(time.time()*1000))))
