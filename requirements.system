@@ -1,1 +1,7 @@
 libbluetooth-dev
+
+
+rm k/*.jpg
+rm o/*.jpg
+rm l/*.jpg
+rm m/*.jpg
