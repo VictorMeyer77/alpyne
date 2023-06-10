@@ -14,9 +14,3 @@ class Camera:
 
     def capture(self, subdir):
         self.camera.capture(os.path.join(self.output_path, subdir, "{}.jpg".format(round(time.time()*1000))))
-
-
-c = Camera()
-while True:
-    time.sleep(1)
-    c.capture("o")
