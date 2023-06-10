@@ -17,5 +17,6 @@ class Camera:
 
 
 c = Camera()
-time.sleep(5)
-c.capture("m")
+while True:
+    time.sleep(1)
+    c.capture("o")
