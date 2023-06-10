@@ -15,4 +15,4 @@ class Camera:
     def capture(self, subdir):
         self.camera.capture(os.path.join(self.output_path, subdir, "{}.jpg".format(round(time.time()*1000))))
 
-Camera().capture("0")
+Camera().capture("m")
