@@ -8,7 +8,7 @@ class Camera:
     def __init__(self):
         self.camera = PiCamera()
         self.camera.resolution = (64, 64)
-        self.camera.color_effects = (128, 128)
+        #self.camera.color_effects = (128, 128)
         self.camera.start_preview()
         self.output_path = "output/media/image/"
 
