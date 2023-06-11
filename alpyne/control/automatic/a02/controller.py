@@ -10,4 +10,4 @@ class Controller:
 
     def run(self):
         view = self.camera.to_array() / 255.0
-        print(self.brain.predict(view))
+        print(self.brain.predict(view.astype("float32")))
