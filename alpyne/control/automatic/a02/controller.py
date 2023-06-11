@@ -1,3 +1,4 @@
+import numpy as np
 
 
 class Controller:
@@ -9,5 +10,6 @@ class Controller:
         self.brain = brain
 
     def run(self):
-        view = self.camera.to_array() / 255.0
-        print(self.brain.predict(view.astype("float32")))
+        view = (self.camera.to_array() / 255.0).astype("float32")
+        view = np.reshape(view, (1, 64, 64, 3))
+        print(self.brain.predict(view))
