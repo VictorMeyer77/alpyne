@@ -9,5 +9,5 @@ class Controller:
         self.brain = brain
 
     def run(self):
-        view = self.camera.to_array()
+        view = self.camera.to_array() / 255.0
         print(self.brain.predict(view))
