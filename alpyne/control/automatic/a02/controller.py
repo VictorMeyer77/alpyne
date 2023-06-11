@@ -24,4 +24,4 @@ class Controller:
             self.move.backward()
         else:
             print(f"Unknown direction {direction}")
-        time.sleep(0.5)
+        time.sleep(0.25)
