@@ -9,16 +9,16 @@ class Camera:
         self.camera = PiCamera()
         self.camera.resolution = (64, 64)
         self.camera.start_preview()
-        self.stream = picamera.array.PiRGBArray(self.camera)
         self.output_path = "output/media/image/"
 
     def capture(self, subdir):
         self.camera.capture(os.path.join(self.output_path, subdir, "{}.jpg".format(round(time.time()*1000))))
 
     def test(self):
-        self.camera.capture(self.stream, "rgb")
-        print(self.stream.array.shape)
-        print(self.stream.array)
+        with picamera.array.PiRGBArray(self.camera) as stream:
+            self.camera.capture(stream, "rgb")
+            print(stream.array.shape)
+            print(stream.array)
 
 c = Camera()
 
