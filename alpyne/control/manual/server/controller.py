@@ -30,5 +30,5 @@ class Controller:
             self.move.stop()
 
         if command in ["o", "l", "m", "k"]:
-            self.camera.capture(command)
+            self.camera.to_file(command)
         time.sleep(0.25)
